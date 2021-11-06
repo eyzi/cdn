@@ -1,4 +1,4 @@
-FROM node:alpine AS base
+FROM node:alpine
 WORKDIR /app
 COPY . .
-RUN yarn build:install
+RUN yarn build:install:clean

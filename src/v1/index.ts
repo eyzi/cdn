@@ -8,7 +8,7 @@ export default async (port: number, directory: string) => {
     credentials: true,
   };
   app.use(cors(corsOptions));
-  app.get("/", express.static(directory));
+  app.use("/", express.static(directory));
 
   app.all("*", (_req, res) => {
     res.status(404).json({
@@ -18,6 +18,8 @@ export default async (port: number, directory: string) => {
   });
 
   app.listen(port, "0.0.0.0", () => {
-    console.log(`CDN server running at port ${port}`);
+    console.log(
+      `CDN server running at port ${port} using directory ${directory}`
+    );
   });
 };

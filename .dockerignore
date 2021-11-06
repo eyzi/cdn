@@ -21,4 +21,6 @@
 **/values.dev.yaml
 **/.nyc_output
 **/__tests__
+**/lib
+**/node_modules
 README.md

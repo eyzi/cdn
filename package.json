@@ -7,8 +7,10 @@
   "author": "Eyzi <contact@eyzi.dev>",
   "license": "MIT",
   "scripts": {
-    "build": "npx tsc",
+    "build": "npx -p typescript tsc",
     "build:install": "yarn install && yarn build",
+    "build:install:clean": "yarn clean && yarn build:install",
+    "clean": "rm -rf lib && rm -rf node_modules",
     "start": "node lib/index",
     "start:dev": "npx ts-node src/index"
   },
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/node": "^16.11.6",
     "@types/serve-index": "^1.9.1"
   }
 }
