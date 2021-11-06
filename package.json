@@ -1,8 +1,8 @@
 {
   "name": "cdn",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A simple CDN server",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "repository": "git@github.com:eyzi/cdn.git",
   "author": "Eyzi <contact@eyzi.dev>",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "build:install": "yarn install && yarn build",
     "build:install:clean": "yarn clean && yarn build:install",
     "clean": "rm -rf lib && rm -rf node_modules",
-    "start": "node lib/index",
+    "start": "node .",
     "start:dev": "npx ts-node src/index"
   },
   "dependencies": {
