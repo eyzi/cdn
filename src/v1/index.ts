@@ -10,6 +10,10 @@ export default async (port: number, directory: string) => {
   app.use(cors(corsOptions));
   app.use("/", express.static(directory));
 
+  app.get("/health", (_, res) => {
+    res.status(200).json({ status: "UP" });
+  });
+
   app.all("*", (_req, res) => {
     res.status(404).json({
       fault: "four hundred and four",
