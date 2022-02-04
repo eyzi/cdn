@@ -9,4 +9,5 @@ RUN apk --no-cache add nodejs npm yarn
 COPY --from=base /app/package.json ./package.json
 COPY --from=base /app/lib ./lib
 COPY --from=base /app/node_modules ./node_modules
+HEALTHCHECK CMD curl --fail --silent http://localhost/health || exit 1
 CMD ["yarn", "start"]
