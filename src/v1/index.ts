@@ -8,11 +8,12 @@ export default async (port: number, directory: string) => {
     credentials: true,
   };
   app.use(cors(corsOptions));
-  app.use("/", express.static(directory));
 
   app.get("/health", (_, res) => {
     res.status(200).json({ status: "UP" });
   });
+
+  app.use([/^\/health/, '/'], express.static(directory));
 
   app.all("*", (_req, res) => {
     res.status(404).json({
