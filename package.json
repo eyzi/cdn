@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npx -p typescript tsc",
+    "build:docker": "docker build -t $DOCKER_REGISTRY/$npm_package_name:$npm_package_version -t $DOCKER_REGISTRY/$npm_package_name:latest .",
     "build:install": "yarn install && yarn build",
     "build:install:clean": "yarn clean && yarn build:install",
     "clean": "rm -rf lib && rm -rf node_modules",
