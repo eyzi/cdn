@@ -38,6 +38,8 @@ jobs:
           git_commit_gpgsign: true
           git_tag_gpgsign: true
       - name: Bump version
+        env:
+          GITHUB_TOKEN: ${{secrets.GIT_TOKEN}}
         run: |
           git config --local gpg.program $(which gpg)
           npm run release
