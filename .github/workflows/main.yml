@@ -20,8 +20,13 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GIT_TOKEN }}
       - uses: actions/setup-node@v3
+        name: Setup Node
         with:
           node-version: 16
+      - uses: borales/actions-yarn@v3.0.0
+        name: Install dependencies
+        with:
+          cmd: install
       - name: Import GPG Key
         uses: crazy-max/ghaction-import-gpg@v4
         with:
