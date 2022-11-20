@@ -51,10 +51,8 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
       - name: Login to ghcr.io registry
         run: echo $CR_PAT | docker login ghcr.io -u $CR_USER --password-stdin
-      - uses: borales/actions-yarn@v3.0.0
-        name: Build docker images
-        with:
-          cmd: build:docker
+      - name: Build docker images
+        run: npm run build:docker
       - name: Push docker images
         run: |
           docker images --filter "reference=$DOCKER_REGISTRY/cdn:latest" --format {{.Repository}} | xargs -I IMG docker image push --all-tags IMG > /dev/null
